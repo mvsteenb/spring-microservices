@@ -1,9 +1,7 @@
 package be.flexlineitsolutions.udemy.microservices.rest.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +24,8 @@ public class UserController {
     return this.userDaoService.findOne(id).orElse(null);
   }
 
+  @PostMapping("/users")
+  public void createUser(@RequestBody User user) {
+    this.userDaoService.save(user);
+  }
 }
