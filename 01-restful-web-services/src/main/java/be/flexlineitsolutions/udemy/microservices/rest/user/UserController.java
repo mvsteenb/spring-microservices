@@ -1,6 +1,10 @@
 package be.flexlineitsolutions.udemy.microservices.rest.user;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -24,11 +28,16 @@ public class UserController {
   }
 
   @GetMapping("/users/{id}")
-  public User retrieveUser(@PathVariable int id) {
+  public EntityModel<User> retrieveUser(@PathVariable int id) {
     User user = this.userDaoService.findOne(id).orElse(null);
     if (user == null)
       throw new UserNotFoundException("id:" + id);
-    return user;
+
+    EntityModel<User> model = EntityModel.of(user);
+    WebMvcLinkBuilder linkToUsers = linkTo(methodOn(this.getClass()).retreiveAllUsers());
+    model.add(linkToUsers.withRel("all-users"));
+
+    return model;
   }
 
   @DeleteMapping("/users/{id}")
