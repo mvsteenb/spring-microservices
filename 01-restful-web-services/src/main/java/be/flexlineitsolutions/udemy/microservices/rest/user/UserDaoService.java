@@ -2,10 +2,7 @@ package be.flexlineitsolutions.udemy.microservices.rest.user;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class UserDaoService {
@@ -35,6 +32,16 @@ public class UserDaoService {
     return users.stream().filter(u -> u.getId() == id).findAny();
   }
 
-
+  public User deleteUser(final int id) {
+    Iterator<User> iterator = users.iterator();
+    while (iterator.hasNext()) {
+      User user = iterator.next();
+      if (user.getId() == id) {
+        iterator.remove();
+        return user;
+      }
+    }
+    return null;
+  }
 
 }
