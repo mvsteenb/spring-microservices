@@ -67,4 +67,14 @@ public class UserJPAController {
 
     return user.get().getPosts();
   }
+
+  @PostMapping("jpa/users/{id}/posts")
+  public Post createPost(@PathVariable int id, @RequestBody Post post) {
+    Optional<User> user = userRepository.findById(id);
+    if (!user.isPresent())
+      throw new UserNotFoundException("id:" + id);
+
+    user.get().getPosts().add(post);
+
+  }
 }
