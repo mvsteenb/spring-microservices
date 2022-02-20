@@ -1,6 +1,6 @@
 package be.flexlineitsolutions.udemy.microservices.rest.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +16,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequiredArgsConstructor
 public class UserJPAController {
 
-  @Autowired
-  private UserRepository userRepository;
-
-  public UserJPAController() {
-  }
+  private final UserRepository userRepository;
+  private final PostRepository postRepository;
 
   @GetMapping("/jpa/users")
   public List<User> retreiveAllUsers() {
@@ -74,7 +72,7 @@ public class UserJPAController {
     if (!user.isPresent())
       throw new UserNotFoundException("id:" + id);
 
-    user.get().getPosts().add(post);
-
+    post.setUser(user.get());
+    return postRepository.save(post);
   }
 }

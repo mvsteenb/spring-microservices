@@ -1,8 +1,6 @@
 package be.flexlineitsolutions.udemy.microservices.rest.user;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +11,14 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
-  @Autowired
-  private UserDaoService userDaoService;
-
-  public UserController() {
-  }
+  private final UserDaoService userDaoService;
 
   @GetMapping("/users")
   public List<User> retreiveAllUsers() {
