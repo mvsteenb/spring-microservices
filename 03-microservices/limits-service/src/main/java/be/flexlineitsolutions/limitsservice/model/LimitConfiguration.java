@@ -1,4 +1,4 @@
-package be.flexlineitsolutions.limitsservice;
+package be.flexlineitsolutions.limitsservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
