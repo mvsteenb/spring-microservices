@@ -4,6 +4,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/01-restful-web-services/pom.xml" />
+        <option value="$PROJECT_DIR$/03-microservices/currency-conversion-service/pom.xml" />
+        <option value="$PROJECT_DIR$/03-microservices/currency-exchange-service/pom.xml" />
+        <option value="$PROJECT_DIR$/03-microservices/limits-service/pom.xml" />
+        <option value="$PROJECT_DIR$/03-microservices/spring-cloud-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/03-microservices/naming-server/pom.xml" />
       </list>
     </option>
   </component>

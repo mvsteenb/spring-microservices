@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/03-microservices/currency-conversion-service/currency-conversion-service.iml" filepath="$PROJECT_DIR$/03-microservices/currency-conversion-service/currency-conversion-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-microservices/currency-exchange-service/currency-exchange-service.iml" filepath="$PROJECT_DIR$/03-microservices/currency-exchange-service/currency-exchange-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-microservices/limits-service/limits-service.iml" filepath="$PROJECT_DIR$/03-microservices/limits-service/limits-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-microservices/naming-server/naming-server.iml" filepath="$PROJECT_DIR$/03-microservices/naming-server/naming-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/01-restful-web-services/restful-web-services.iml" filepath="$PROJECT_DIR$/01-restful-web-services/restful-web-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-microservices/spring-cloud-config-server/spring-cloud-config-server.iml" filepath="$PROJECT_DIR$/03-microservices/spring-cloud-config-server/spring-cloud-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-microservices.iml" filepath="$PROJECT_DIR$/.idea/spring-microservices.iml" />
     </modules>
   </component>
