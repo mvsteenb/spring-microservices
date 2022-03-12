@@ -39,7 +39,7 @@ public class CurrencyConversionController {
 				response.getConversionMultiple(),
 				quantity,
 				quantity.multiply(response.getConversionMultiple()),
-				0
+				response.getEnvironment()
 		);
 	}
 
@@ -53,7 +53,7 @@ public class CurrencyConversionController {
 				response.getConversionMultiple(),
 				quantity,
 				quantity.multiply(response.getConversionMultiple()),
-				0
+				response.getEnvironment()
 		);
 	}
 

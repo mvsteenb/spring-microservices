@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 //@FeignClient(name="currency-exchange-service", url="localhost:8000")
-@FeignClient(name="currency-exchange-service")
+@FeignClient(name="currency-exchange-service") // MAGIC :-) USES EUREKA NAMING SERVICE FOR LOAD BALANCING
 public interface CurrencyExchangeClient {
 
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
